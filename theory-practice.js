@@ -1,3 +1,50 @@
+/*
+loops
+Состоят из тела цикла и условия
+правило: пока стакан не полный наливай
+*/
+
+// break vs continue
+
+apples = [
+    {
+        apple : 1,
+        isRotten: false
+    },
+    {
+        apple : 2,
+        isRotten: true
+    },
+    {
+        apple : 3,
+        isRotten: false
+    },
+
+    {
+        apple : 4,
+        isRotten: true
+    }
+]
+//continue
+for (let i =0; i < apples.length; i++) {
+    if (apples[i]. isRotten) {
+        continue;// Пропусти это яблоко, иди к следующему
+    }
+    console.log(apples[i]); // Съесть хорошее яблоко
+}
+
+/* "Фу, это гнилое. Пропускаю. Следующее!"
+— Ты продолжаешь перебирать яблоки, пока все не проверишь.*/
+
+//break
+for (let i =0; i < apples.length; i++) {
+    if (apples[i].isRotten) {
+        break;
+    }
+    console.log(apples[i]);
+}
+
+
 //for
 
 for (let i = 0; i < 4; i++) {
