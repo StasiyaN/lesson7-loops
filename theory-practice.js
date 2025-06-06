@@ -104,12 +104,26 @@ for (let book of books) {
 }
 
 // =
-for (let key in books) {
-    if (key === 'name') {
-        break;
+// for (let book in books) {
+//     if (book === 'name') { - Никогда не выполнится book === 'name', потому что book — это не поле name, а строковый индекс массива.
+//         break;
+//     }
+//     console.log(book, books[book]);
+// }
+
+for (const book of books) {
+    if (book.name) {
+        console.log("Первая книга найдена:", book.name);
+        break; // остановить цикл — больше ничего не проверяем
     }
-    console.log(key, books[key]);
 }
+/*
+🔍 Что делает этот код:
+Первая итерация: проверяет book.name (у первой книги)
+
+Если название есть (не null, не undefined, не пустое) → печатает и выходит из цикла
+
+Остальные книги не проверяются вообще*/
 
 //gpt example
 /* Задача:
@@ -167,7 +181,7 @@ Symbol.iterator — это ключ к "for...of"`
 /*🎯 Цель:
 Сделать так, чтобы по нашему объекту можно было пройтись с помощью for...of.
 */
-const person = {
+const person1 = {
     name: "Anna",
     age: 25,
     city: "Paris",
@@ -198,16 +212,16 @@ while (i < 5) {
     console.log('I am still working - ' + i)
     i++
 }
-
-let word ='';
-while (word.length < 5) {
-    const value = prompt ('Enter the letter')
-    if (value.length === 0) {
-        break;
-    }
-    word = word + value;
-    console.log(word);
-}
+//
+// let word ='';
+// while (word.length < 5) {
+//     const value = prompt ('Enter the letter')
+//     if (value.length === 0) {
+//         break;
+//     }
+//     word = word + value;
+//     console.log(word);
+// }
 
 // do ... while
 let h = 5;
@@ -229,4 +243,17 @@ console.log(person['city'])
 
 for (let key in person) {
     console.log(key + '-' + person[key]);
+}
+
+const user = {
+    name: 'John',
+    age: 25,
+    isMarried: true
+};
+
+for (let key in user) {
+if (key === 'age') {
+    break;
+    }
+    console.log(key, user[key]);
 }
